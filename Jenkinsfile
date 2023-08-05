@@ -5,7 +5,7 @@ pipeline {
         stage('1. Git Cloning') {
             steps {
                 sh "echo 'Cloning the latest version of the application'"
-                git branch: 'main', credentialsId: 'gitCred2', url: 'https://github.com/MerciBoi/Test2.git'
+                git branch: 'master', credentialsId: 'gitCred3', url: 'https://github.com/DinmaMerciBoi/Test.git'
             }
         }
         stage('2. Docker image build') {
