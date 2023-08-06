@@ -3,8 +3,7 @@
 # MAINTAINER: CHukwudinma Akabuogu - DevOps Engineer
 
 # Variables, edit as desired before running the script
-API_URL="http://52.170.17.0:5000/create"
-JSON_DATA='{"name":"$name","email":"$email","pwd":"$password1"}'
+API_URL="http://40.88.200.103/create"
 
 echo "Welcome to the process of adding your details to our database."
 echo "Please enter your full name..."
@@ -21,13 +20,19 @@ echo "Enter your password again..."
 read -s password2
 sleep 1
 
-if (( $password1 == $password2 ))
+if [ $password1 == $password2 ]
 then
 echo "Your details are being added to our database."
 sleep 2
 
+NAME=$name
+EMAIL=$email
+PWD=$password1
+
+JSON_DATA="{\"name\":\"$NAME\",\"email\":\"$EMAIL\",\"pwd\":\"$PWD\"}"
+
 # Perform POST request using curl
-sudo curl -X POST -H "Content-Type: application/json" -d "$JSON_DATA" "$API_URL"
+curl -X POST -H "Content-Type: application/json" -d "$JSON_DATA" "$API_URL"
 
 echo "Your details have beed added successfully."
 echo "Thank you. Have a great day."
