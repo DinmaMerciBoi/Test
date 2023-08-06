@@ -49,10 +49,14 @@ CREATE TABLE users (
 
 DESCRIBE users;
 ```
+## 2b. Create a database if need be
+```bash
+CREATE DATABASE databasename;
+```
 
 ## 3. Add content to the table as desired with the following methods
 
-   * While still logged into the mysql server, run this command
+   * While still logged into the mysql server, run this command first
 ```bash
 INSERT INTO users VALUE ("1", "name", "someemail@gmail.com", "password1");
 ```
@@ -83,3 +87,26 @@ curl -X POST -H "Content-Type: application/json" -d '{"name":"John Doe","email":
 
    * Other mysql server commands can also be used to perform respective operations - Create, Read, Update and Delete.
 
+## 4. To view your table
+```bash
+SELECT * FROM users;
+```
+## 5. To read a column
+```bash
+SELECT user_email FROM users;
+```
+## 6. To retrieve users
+Send a GET request to `http://localhost:5000/users`.
+```bash
+GET http://localhost:5000/users
+```
+To get information about a specific user (e.g., user with user_id equal to 1), send a GET request to `http://localhost:5000/user/1`.
+```bash
+GET http://localhost:5000/user/1
+```
+
+## NB.
+You can add users to this table using the shell script added to this repository `adduser.sh`. Review the script before running it.
+
+### Feels great to have done this. Please feel free to reach out for comments and enquiries:
+### info@merciboi.com
