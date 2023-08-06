@@ -34,7 +34,9 @@ kubectl exec -it <pod-ID> -- bash
 
 ## 2. Login to mysql server, and run these commands in this order
 ```bash
-mysql -u root -p root
+mysql -u root -p 
+
+(Use 'root' as the password, when requested)
 
 SHOW DATABASES;
 

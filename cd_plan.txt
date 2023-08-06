@@ -1,0 +1,14 @@
+This is the Continuous Delivery plan for the deployed python application.
+
+As seen in the repository, I included a 'Jenkinsfile' which would serve as the groovy pipeline script to build a DOcker image of the application, push it to the DockerHub Repository ready for deployment. I also included in the pipeline script a deployment step to Kubernetes cluster.
+
+However, a continuous delivery plan would include:
+1. A working GitHub repository (or any other version control manager like GitLab or BitBucket). This repository should have a webhook configured to trigger the build by Jenkins every time a new version of the code is pushed into it.
+2. A continuous testing system set up after test cases have been written and pushed to the repository.
+3. A Docker engine to build the containerized image each time a build is triggered.
+4. A working DockerHub repository for the versions of containerised images. At this point, there could be a deployment to test environment from where the application is approved to go on to deployment to the production environment. When this is done, the next step follows.
+5. An Ansible server on which the host servers have been configured. Once a build is completed by the CI/CD tool (Jenkins in this case), the next phase of delivery/deployment is triggered which releases the built image version to Ansible for onward deployment into the Kubernetes cluster(s) as necessary.
+
+With this, it is ensured that there is a continuous delivery of the containerized application image, with no downtime.
+
+Thank you for the opportunity to carry out this test.
